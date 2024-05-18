@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="gameover.png"><SubTexture name="gameover start0000" x="0" y="0" width="833" height="843" frameX="-127" frameY="-182" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="gameover start0001" x="833" y="0" width="833" height="843" frameX="-127" frameY="-182" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="gameover start0002" x="833" y="0" width="833" height="843" frameX="-127" frameY="-182" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="gameover start0003" x="0" y="0" width="833" height="843" frameX="-127" frameY="-182" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="gameover start0004" x="833" y="0" width="833" height="843" frameX="-127" frameY="-182" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="gameover start0005" x="833" y="0" width="833" height="843" frameX="-127" frameY="-182" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="gameover start0006" x="0" y="0" width="833" height="843" frameX="-127" frameY="-182" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="gameover start0007" x="833" y="0" width="833" height="843" frameX="-127" frameY="-182" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="gameover start0008" x="833" y="0" width="833" height="843" frameX="-127" frameY="-182" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="gameover start0009" x="0" y="0" width="833" height="843" frameX="-127" frameY="-182" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="gameover start0010" x="1666" y="0" width="833" height="843" frameX="-127" frameY="-182" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="gameover start0011" x="0" y="843" width="833" height="843" frameX="-127" frameY="-182" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="gameover start0012" x="833" y="843" width="833" height="843" frameX="-127" frameY="-182" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="gameover start0013" x="1666" y="843" width="833" height="843" frameX="-127" frameY="-182" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="gameover start0014" x="2499" y="0" width="833" height="843" frameX="-127" frameY="-182" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="gameover start0015" x="2499" y="843" width="833" height="843" frameX="-127" frameY="-182" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="gameover start0016" x="0" y="1686" width="833" height="843" frameX="-127" frameY="-182" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="gameover start0017" x="833" y="1686" width="833" height="843" frameX="-127" frameY="-182" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="gameover start0018" x="833" y="1686" width="833" height="843" frameX="-127" frameY="-182" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="gameover start0019" x="833" y="1686" width="833" height="843" frameX="-127" frameY="-182" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="gameover start0020" x="1666" y="1686" width="833" height="843" frameX="-127" frameY="-182" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="gameover start0021" x="3332" y="0" width="879" height="843" frameX="-127" frameY="-182" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="gameover start0022" x="3332" y="843" width="861" height="843" frameX="-127" frameY="-182" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="gameover start0023" x="3332" y="1686" width="865" height="843" frameX="-127" frameY="-182" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="gameover start0024" x="3332" y="1686" width="865" height="843" frameX="-127" frameY="-182" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="gameover start0025" x="3332" y="1686" width="865" height="843" frameX="-127" frameY="-182" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="gameover loop0000" x="0" y="2529" width="882" height="843" frameX="-127" frameY="-182" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="gameover loop0001" x="882" y="2529" width="869" height="843" frameX="-127" frameY="-182" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="gameover loop0002" x="3332" y="1686" width="865" height="843" frameX="-127" frameY="-182" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="gameover loop0003" x="3332" y="1686" width="865" height="843" frameX="-127" frameY="-182" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="gameover loop0004" x="3332" y="1686" width="865" height="843" frameX="-127" frameY="-182" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="gameover end0000" x="1751" y="2529" width="865" height="843" frameX="-127" frameY="-182" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="gameover end0001" x="2616" y="2529" width="865" height="843" frameX="-127" frameY="-182" frameWidth="1080" frameHeight="1080" />
+</TextureAtlas>

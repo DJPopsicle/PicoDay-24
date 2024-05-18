@@ -22,6 +22,8 @@ class MenuCharacterEditorState extends MusicBeatState
 	var defaultCharacters:Array<String> = ['dad', 'bf', 'gf'];
 
 	override function create() {
+		allowedToFullscreen = false;
+		
 		characterFile = {
 			image: 'Menu_Dad',
 			scale: 1,

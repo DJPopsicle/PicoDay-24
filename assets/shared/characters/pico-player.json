@@ -1,122 +1,157 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [
 				3,
-				0
+				4
 			],
-			"anim": "idle",
+			"loop": false,
 			"fps": 24,
-			"name": "Pico Idle Dance",
+			"anim": "idle",
+			"indices": [],
+			"name": "Pico Idle Dance"
+		},
+		{
+			"offsets": [
+				16,
+				32
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "pico Up note0"
+		},
+		{
+			"offsets": [
+				95,
+				-91
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "Pico Down Note0"
+		},
+		{
+			"offsets": [
+				92,
+				-45
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWNmiss",
+			"indices": [],
+			"name": "Pico Down Note MISS"
+		},
+		{
+			"offsets": [
+				22,
+				65
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUPmiss",
+			"indices": [],
+			"name": "pico Up note miss"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-50,
+				3
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "Pico Note Right0",
 			"indices": []
 		},
 		{
 			"loop": false,
 			"offsets": [
-				21,
+				92,
+				-9
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "Pico NOTE LEFT0",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-36,
+				51
+			],
+			"anim": "singRIGHTmiss",
+			"fps": 24,
+			"name": "Pico Note Right Miss",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				89,
 				27
 			],
-			"anim": "singUP",
-			"fps": 24,
-			"name": "pico Up note0",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				84,
-				-80
-			],
-			"anim": "singDOWN",
-			"fps": 24,
-			"name": "Pico Down Note0",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				80,
-				-38
-			],
-			"anim": "singDOWNmiss",
-			"fps": 24,
-			"name": "Pico Down Note MISS",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				28,
-				67
-			],
-			"anim": "singUPmiss",
-			"fps": 24,
-			"name": "pico Up note miss",
-			"indices": []
-		},
-		{
-			"offsets": [
-				-48,
-				2
-			],
-			"loop": false,
-			"fps": 24,
-			"anim": "singRIGHT",
-			"indices": [],
-			"name": "Pico Note Right0"
-		},
-		{
-			"offsets": [
-				85,
-				-10
-			],
-			"loop": false,
-			"fps": 24,
-			"anim": "singLEFT",
-			"indices": [],
-			"name": "Pico NOTE LEFT0"
-		},
-		{
-			"offsets": [
-				-45,
-				50
-			],
-			"loop": false,
-			"fps": 24,
-			"anim": "singRIGHTmiss",
-			"indices": [],
-			"name": "Pico Note Right Miss"
-		},
-		{
-			"offsets": [
-				83,
-				28
-			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singLEFTmiss",
+			"fps": 24,
+			"name": "Pico NOTE LEFT miss",
+			"indices": []
+		},
+		{
+			"offsets": [
+				7,
+				-21
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "dodge",
 			"indices": [],
-			"name": "Pico NOTE LEFT miss"
+			"name": "pico dodge"
+		},
+		{
+			"offsets": [
+				489,
+				133
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "attack",
+			"indices": [],
+			"name": "pico attack"
+		},
+		{
+			"offsets": [
+				90,
+				-20
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "hit",
+			"indices": [],
+			"name": "Pico hit"
 		}
 	],
+	"vocals_file": "Pico",
 	"no_antialiasing": false,
 	"image": "characters/Pico_FNF_assetss",
 	"position": [
-		0,
+		10,
 		300
 	],
 	"healthicon": "pico",
 	"flip_x": true,
 	"healthbar_colors": [
-		183,
-		216,
-		85
-	],
-	"camera_position": [
-		220,
+		0,
+		255,
 		0
 	],
+	"camera_position": [
+		280,
+		20
+	],
 	"sing_duration": 4,
-	"scale": 1
+	"scale": 1,
+	"_editor_isPlayer": true
 }

@@ -77,6 +77,8 @@ class EditorPlayState extends MusicBeatSubstate
 	public function new(playbackRate:Float)
 	{
 		super();
+		allowedToFullscreen = false;
+		
 		
 		/* setting up some important data */
 		this.playbackRate = playbackRate;

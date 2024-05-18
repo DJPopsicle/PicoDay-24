@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="space.png">
+<SubTexture name="space barBop0000" x="0" y="688" width="359" height="104" frameX="-120" frameY="-427" frameWidth="600" frameHeight="600" />
+<SubTexture name="space barBop0001" x="367" y="570" width="352" height="107" frameX="-124" frameY="-424" frameWidth="600" frameHeight="600" />
+<SubTexture name="space barBop0002" x="733" y="0" width="354" height="106" frameX="-123" frameY="-425" frameWidth="600" frameHeight="600" />
+<SubTexture name="space barHit0000" x="0" y="161" width="371" height="155" frameX="-114" frameY="-374" frameWidth="600" frameHeight="600" />
+<SubTexture name="space barHit0001" x="0" y="0" width="366" height="161" frameX="-117" frameY="-368" frameWidth="600" frameHeight="600" />
+<SubTexture name="space barHit0002" x="366" y="0" width="367" height="160" frameX="-116" frameY="-369" frameWidth="600" frameHeight="600" />
+<SubTexture name="space num30000" x="371" y="161" width="102" height="142" frameX="-252" frameY="-269" frameWidth="600" frameHeight="600" />
+<SubTexture name="space num30001" x="523" y="316" width="94" height="124" frameX="-256" frameY="-278" frameWidth="600" frameHeight="600" />
+<SubTexture name="space num30002" x="339" y="316" width="92" height="130" frameX="-257" frameY="-275" frameWidth="600" frameHeight="600" />
+<SubTexture name="space num30003" x="431" y="316" width="92" height="128" frameX="-257" frameY="-276" frameWidth="600" frameHeight="600" />
+<SubTexture name="space num20000" x="573" y="161" width="102" height="133" frameX="-253" frameY="-277" frameWidth="600" frameHeight="600" />
+<SubTexture name="space num20001" x="174" y="570" width="98" height="115" frameX="-255" frameY="-286" frameWidth="600" frameHeight="600" />
+<SubTexture name="space num20002" x="617" y="316" width="92" height="121" frameX="-258" frameY="-283" frameWidth="600" frameHeight="600" />
+<SubTexture name="space num20003" x="635" y="448" width="92" height="119" frameX="-258" frameY="-284" frameWidth="600" frameHeight="600" />
+<SubTexture name="space num10000" x="473" y="161" width="100" height="136" frameX="-252" frameY="-271" frameWidth="600" frameHeight="600" />
+<SubTexture name="space num10001" x="272" y="570" width="95" height="112" frameX="-255" frameY="-283" frameWidth="600" frameHeight="600" />
+<SubTexture name="space num10002" x="0" y="570" width="87" height="118" frameX="-259" frameY="-280" frameWidth="600" frameHeight="600" />
+<SubTexture name="space num10003" x="87" y="570" width="87" height="116" frameX="-259" frameY="-281" frameWidth="600" frameHeight="600" />
+<SubTexture name="space now0000" x="0" y="316" width="339" height="132" frameX="-134" frameY="-283" frameWidth="600" frameHeight="600" />
+<SubTexture name="space now0001" x="0" y="448" width="318" height="122" frameX="-143" frameY="-293" frameWidth="600" frameHeight="600" />
+<SubTexture name="space now0002" x="318" y="448" width="317" height="121" frameX="-144" frameY="-292" frameWidth="600" frameHeight="600" />
+<SubTexture name="space early0000" x="856" y="106" width="107" height="25" frameX="-342" frameY="-349" frameWidth="600" frameHeight="600" />
+<SubTexture name="space early0001" x="963" y="106" width="89" height="23" frameX="-351" frameY="-350" frameWidth="600" frameHeight="600" />
+<SubTexture name="space late0000" x="733" y="106" width="66" height="52" frameX="-365" frameY="-336" frameWidth="600" frameHeight="600" />
+<SubTexture name="space late0001" x="799" y="106" width="57" height="46" frameX="-369" frameY="-339" frameWidth="600" frameHeight="600" />
+</TextureAtlas>

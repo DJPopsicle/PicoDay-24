@@ -1,5 +1,6 @@
 package states;
 
+import flixel.util.FlxSave;
 import backend.WeekData;
 import backend.Highscore;
 
@@ -85,7 +86,55 @@ class TitleState extends MusicBeatState
 
 		super.create();
 
-		FlxG.save.bind('funkin', CoolUtil.getSavePath());
+		var funkinSave:FlxSave = new FlxSave();
+		var funkinControls:FlxSave = new FlxSave();
+		var controlsSave:FlxSave = new FlxSave();
+		
+		FlxG.save.bind('picoday24', CoolUtil.getSavePath());
+
+
+		if (FlxG.save.data.loadedSave == null)
+		{
+			funkinSave.bind('funkin', 'ShadowMario/PsychEngine');
+			FlxG.save.mergeData(funkinSave.data);
+
+			var gameplaySettings:Map<String, Dynamic> = [
+				'scrollspeed' => 1.0,
+				'scrolltype' => 'multiplicative',
+				'songspeed' => 1.0,
+				'healthgain' => 1.0,
+				'healthloss' => 1.0,
+				'instakill' => false,
+				'practice' => false,
+				'botplay' => false,
+				'opponentplay' => false
+			];
+
+			FlxG.save.data.gameplaySettings = gameplaySettings;
+
+			controlsSave.bind('controls_v3', CoolUtil.getSavePath());
+			controlsSave.erase();
+			controlsSave.flush();
+	
+			if (controlsSave.data.keyboard == null)
+			{
+				trace("true");
+	
+				funkinControls.bind('controls_v3', 'ShadowMario/PsychEngine');
+				
+				controlsSave.mergeData(funkinControls.data, true);
+				controlsSave.flush();
+
+				for (key => value in ClientPrefs.keyBinds)
+				{
+					ClientPrefs.keyBinds.set(key, controlsSave.data.keyboard.get(key));
+				}
+	
+			}
+
+			FlxG.save.data.loadedSave = true;
+			FlxG.save.data.flush();
+		}
 
 		ClientPrefs.loadPrefs();
 
@@ -152,7 +201,7 @@ class TitleState extends MusicBeatState
 
 		FlxG.mouse.visible = false;
 		#if FREEPLAY
-		MusicBeatState.switchState(new FreeplayState());
+		MusicBeatState.switchState(new MainMenuState());
 		#elseif CHARTING
 		MusicBeatState.switchState(new ChartingState());
 		#else
@@ -208,8 +257,9 @@ class TitleState extends MusicBeatState
 		logoBl = new FlxSprite(titleJSON.titlex, titleJSON.titley);
 		logoBl.frames = Paths.getSparrowAtlas('logoBumpin');
 		logoBl.antialiasing = ClientPrefs.data.antialiasing;
+		logoBl.scale.set(0.85, 0.85);
 
-		logoBl.animation.addByPrefix('bump', 'logo bumpin', 24, false);
+		logoBl.animation.addByPrefix('bump', 'logoBumpin bump', 24, false);
 		logoBl.animation.play('bump');
 		logoBl.updateHitbox();
 		// logoBl.screenCenter();

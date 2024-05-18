@@ -27,6 +27,8 @@ class MasterEditorMenu extends MusicBeatState
 
 	override function create()
 	{
+		allowedToFullscreen = false;
+		
 		FlxG.camera.bgColor = FlxColor.BLACK;
 		#if DISCORD_ALLOWED
 		// Updating Discord Rich Presence

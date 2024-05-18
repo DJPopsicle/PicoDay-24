@@ -66,6 +66,8 @@ class CharacterEditorState extends MusicBeatState
 
 	override function create()
 	{
+		allowedToFullscreen = false;
+		
 		if(ClientPrefs.data.cacheOnGPU) Paths.clearStoredMemory();
 
 		FlxG.sound.music.stop();

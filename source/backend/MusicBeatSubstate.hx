@@ -1,6 +1,7 @@
 package backend;
 
 import flixel.FlxSubState;
+import flixel.input.keyboard.FlxKey;
 
 class MusicBeatSubstate extends FlxSubState
 {
@@ -21,6 +22,7 @@ class MusicBeatSubstate extends FlxSubState
 	private var curDecStep:Float = 0;
 	private var curDecBeat:Float = 0;
 	private var controls(get, never):Controls;
+	public var allowedToFullscreen:Bool = true;
 
 	inline function get_controls():Controls
 		return Controls.instance;
@@ -33,6 +35,12 @@ class MusicBeatSubstate extends FlxSubState
 
 		updateCurStep();
 		updateBeat();
+
+		if (FlxG.keys.anyJustPressed([FlxKey.F]))
+		{
+			FlxG.fullscreen = !FlxG.fullscreen;
+			FlxG.save.data.fullscreen = FlxG.fullscreen;	
+		}
 
 		if (oldStep != curStep)
 		{

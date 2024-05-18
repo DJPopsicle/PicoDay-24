@@ -34,9 +34,7 @@ class CreditsState extends MusicBeatState
 		grpOptions = new FlxTypedGroup<Alphabet>();
 		add(grpOptions);
 
-		#if MODS_ALLOWED
-		for (mod in Mods.parseList().enabled) pushModCreditsToList(mod);
-		#end
+		pushCreditsToList();
 
 		var defaultList:Array<Array<String>> = [ //Name - Icon name - Description - Link - BG Color
 			['Psych Engine Team'],
@@ -258,12 +256,10 @@ class CreditsState extends MusicBeatState
 		descBox.updateHitbox();
 	}
 
-	#if MODS_ALLOWED
-	function pushModCreditsToList(folder:String)
+	function pushCreditsToList()
 	{
 		var creditsFile:String = null;
-		if(folder != null && folder.trim().length > 0) creditsFile = Paths.mods(folder + '/data/credits.txt');
-		else creditsFile = Paths.mods('data/credits.txt');
+ 		creditsFile = Paths.txt('credits');
 
 		if (FileSystem.exists(creditsFile))
 		{
@@ -271,13 +267,13 @@ class CreditsState extends MusicBeatState
 			for(i in firstarray)
 			{
 				var arr:Array<String> = i.replace('\\n', '\n').split("::");
-				if(arr.length >= 5) arr.push(folder);
+				//if(arr.length >= 5) arr.push(folder);
+				
 				creditsStuff.push(arr);
 			}
 			creditsStuff.push(['']);
 		}
 	}
-	#end
 
 	private function unselectableCheck(num:Int):Bool {
 		return creditsStuff[num].length <= 1;

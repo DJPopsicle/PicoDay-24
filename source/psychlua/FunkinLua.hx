@@ -825,7 +825,7 @@ class FunkinLua {
 			if(PlayState.isStoryMode)
 				MusicBeatState.switchState(new StoryMenuState());
 			else
-				MusicBeatState.switchState(new FreeplayState());
+				MusicBeatState.switchState(new MainMenuState());
 
 			#if DISCORD_ALLOWED DiscordClient.resetClientID(); #end
 
@@ -985,7 +985,7 @@ class FunkinLua {
 			}
 		});
 
-		Lua_helper.add_callback(lua, "makeLuaSprite", function(tag:String, ?image:String = null, ?x:Float = 0, ?y:Float = 0) {
+		Lua_helper.add_callback(lua, "makeLuaSprite", function(tag:String, ?image:String = null, ?x:Float = 0, ?y:Float = 0, ?float:Bool = false, ?floatSpeed:Float = 1, ?projNum:Int = 1) {
 			tag = tag.replace('.', '');
 			LuaUtils.resetSpriteTag(tag);
 			var leSprite:ModchartSprite = new ModchartSprite(x, y);
@@ -994,6 +994,8 @@ class FunkinLua {
 				leSprite.loadGraphic(Paths.image(image));
 			}
 			game.modchartSprites.set(tag, leSprite);
+			if (float)
+				game.modchartFloatingSprites.set(tag, [leSprite.x, leSprite.y, floatSpeed, projNum]);
 			leSprite.active = true;
 		});
 		Lua_helper.add_callback(lua, "makeAnimatedLuaSprite", function(tag:String, ?image:String = null, ?x:Float = 0, ?y:Float = 0, ?spriteType:String = "sparrow") {

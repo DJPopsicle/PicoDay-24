@@ -1,5 +1,6 @@
 package backend;
 
+import flixel.input.keyboard.FlxKey;
 import flixel.addons.ui.FlxUIState;
 import flixel.addons.transition.FlxTransitionableState;
 import flixel.FlxState;
@@ -10,12 +11,14 @@ class MusicBeatState extends FlxUIState
 	private var curSection:Int = 0;
 	private var stepsToDo:Int = 0;
 
-	private var curStep:Int = 0;
-	private var curBeat:Int = 0;
+	public var curStep:Int = 0;
+	public var curBeat:Int = 0;
 
 	private var curDecStep:Float = 0;
 	private var curDecBeat:Float = 0;
 	public var controls(get, never):Controls;
+	public var allowedToFullscreen:Bool = true;
+	
 	private function get_controls()
 	{
 		return Controls.instance;
@@ -77,6 +80,12 @@ class MusicBeatState extends FlxUIState
 		stagesFunc(function(stage:BaseStage) {
 			stage.update(elapsed);
 		});
+
+		if (allowedToFullscreen && FlxG.keys.anyJustPressed([FlxKey.F]))
+		{
+			FlxG.fullscreen = !FlxG.fullscreen;
+			FlxG.save.data.fullscreen = FlxG.fullscreen;	
+		}
 
 		super.update(elapsed);
 	}

@@ -159,6 +159,8 @@ class ClientPrefs {
 		#if ACHIEVEMENTS_ALLOWED Achievements.save(); #end
 		FlxG.save.flush();
 
+		trace("oopsie: " + data);
+
 		//Placing this in a separate save so that it can be manually deleted without removing your Score and stuff
 		var save:FlxSave = new FlxSave();
 		save.bind('controls_v3', CoolUtil.getSavePath());
@@ -225,6 +227,8 @@ class ClientPrefs {
 				var loadedControls:Map<String, Array<FlxKey>> = save.data.keyboard;
 				for (control => keys in loadedControls)
 					if(keyBinds.exists(control)) keyBinds.set(control, keys);
+
+				trace("set keybinds: " + keyBinds);
 			}
 			if(save.data.gamepad != null)
 			{

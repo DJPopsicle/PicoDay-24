@@ -7,11 +7,12 @@ import flixel.FlxObject;
 import flixel.FlxSubState;
 
 import states.StoryMenuState;
-import states.FreeplayState;
+import states.MainMenuState;
 
 class GameOverSubstate extends MusicBeatSubstate
 {
 	public var boyfriend:Character;
+	var gameOver:FlxSprite;
 	var camFollow:FlxObject;
 	var moveCamera:Bool = false;
 	var playingDeathSound:Bool = false;
@@ -49,20 +50,31 @@ class GameOverSubstate extends MusicBeatSubstate
 
 		Conductor.songPosition = 0;
 
-		boyfriend = new Character(PlayState.instance.boyfriend.getScreenPosition().x, PlayState.instance.boyfriend.getScreenPosition().y, characterName, true);
-		boyfriend.x += boyfriend.positionArray[0] - PlayState.instance.boyfriend.positionArray[0];
-		boyfriend.y += boyfriend.positionArray[1] - PlayState.instance.boyfriend.positionArray[1];
-		add(boyfriend);
+		// boyfriend = new Character(PlayState.instance.boyfriend.getScreenPosition().x, PlayState.instance.boyfriend.getScreenPosition().y, characterName, true);
+		// boyfriend.x += boyfriend.positionArray[0] - PlayState.instance.boyfriend.positionArray[0];
+		// boyfriend.y += boyfriend.positionArray[1] - PlayState.instance.boyfriend.positionArray[1];
+		// add(boyfriend);
+
+		gameOver = new FlxSprite();
+		gameOver.frames = Paths.getSparrowAtlas('gameOver');
+		gameOver.animation.addByPrefix("start", "gameover start", 12, false);
+		gameOver.animation.addByPrefix("loop", "gameover loop", 12, true);
+		gameOver.animation.addByPrefix("end", "gameover end", 12, false);
+		gameOver.antialiasing = ClientPrefs.data.antialiasing;
+		gameOver.screenCenter();
+		gameOver.scale.set(0.75, 0.75);
+		add(gameOver);
 
 		FlxG.sound.play(Paths.sound(deathSoundName));
 		FlxG.camera.scroll.set();
 		FlxG.camera.target = null;
 
-		boyfriend.playAnim('firstDeath');
+		//boyfriend.playAnim('firstDeath');
+		gameOver.animation.play('start');
 
 		camFollow = new FlxObject(0, 0, 1, 1);
-		camFollow.setPosition(boyfriend.getGraphicMidpoint().x + boyfriend.cameraPosition[0], boyfriend.getGraphicMidpoint().y + boyfriend.cameraPosition[1]);
-		FlxG.camera.focusOn(new FlxPoint(FlxG.camera.scroll.x + (FlxG.camera.width / 2), FlxG.camera.scroll.y + (FlxG.camera.height / 2)));
+		//camFollow.setPosition(boyfriend.getGraphicMidpoint().x + boyfriend.cameraPosition[0], boyfriend.getGraphicMidpoint().y + boyfriend.cameraPosition[1]);
+		//FlxG.camera.focusOn(new FlxPoint(FlxG.camera.scroll.x + (FlxG.camera.width / 2), FlxG.camera.scroll.y + (FlxG.camera.height / 2)));
 		add(camFollow);
 		
 		PlayState.instance.setOnScripts('inGameOver', true);
@@ -95,26 +107,26 @@ class GameOverSubstate extends MusicBeatSubstate
 			if (PlayState.isStoryMode)
 				MusicBeatState.switchState(new StoryMenuState());
 			else
-				MusicBeatState.switchState(new FreeplayState());
+				MusicBeatState.switchState(new MainMenuState());
 
 			FlxG.sound.playMusic(Paths.music('freakyMenu'));
 			PlayState.instance.callOnScripts('onGameOverConfirm', [false]);
 		}
 		
-		if (boyfriend.animation.curAnim != null)
+		if (gameOver.animation.curAnim != null)
 		{
-			if (boyfriend.animation.curAnim.name == 'firstDeath' && boyfriend.animation.curAnim.finished && startedDeath)
-				boyfriend.playAnim('deathLoop');
+			if (gameOver.animation.curAnim.name == 'start' && gameOver.animation.curAnim.finished && startedDeath)
+				gameOver.animation.play('loop');
 
-			if(boyfriend.animation.curAnim.name == 'firstDeath')
+			if(gameOver.animation.curAnim.name == 'start')
 			{
-				if(boyfriend.animation.curAnim.curFrame >= 12 && !moveCamera)
+				if(gameOver.animation.curAnim.curFrame >= 12 && !moveCamera)
 				{
-					FlxG.camera.follow(camFollow, LOCKON, 0.6);
+					//FlxG.camera.follow(camFollow, LOCKON, 0.6);
 					moveCamera = true;
 				}
 
-				if (boyfriend.animation.curAnim.finished && !playingDeathSound)
+				if (gameOver.animation.curAnim.finished && !playingDeathSound)
 				{
 					startedDeath = true;
 					if (PlayState.SONG.stage == 'tank')
@@ -156,7 +168,7 @@ class GameOverSubstate extends MusicBeatSubstate
 		if (!isEnding)
 		{
 			isEnding = true;
-			boyfriend.playAnim('deathConfirm', true);
+			gameOver.animation.play('end', true);
 			FlxG.sound.music.stop();
 			FlxG.sound.play(Paths.music(endSoundName));
 			new FlxTimer().start(0.7, function(tmr:FlxTimer)

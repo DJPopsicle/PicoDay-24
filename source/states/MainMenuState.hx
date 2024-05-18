@@ -7,6 +7,10 @@ import lime.app.Application;
 import states.editors.MasterEditorMenu;
 import options.OptionsState;
 
+import backend.Highscore;
+import backend.WeekData;
+import backend.Song;
+
 class MainMenuState extends MusicBeatState
 {
 	public static var psychEngineVersion:String = '0.7.3'; // This is also used for Discord RPC
@@ -15,12 +19,8 @@ class MainMenuState extends MusicBeatState
 	var menuItems:FlxTypedGroup<FlxSprite>;
 
 	var optionShit:Array<String> = [
-		'story_mode',
-		'freeplay',
-		#if MODS_ALLOWED 'mods', #end
-		#if ACHIEVEMENTS_ALLOWED 'awards', #end
+		'play',
 		'credits',
-		#if !switch 'donate', #end
 		'options'
 	];
 
@@ -85,6 +85,8 @@ class MainMenuState extends MusicBeatState
 			menuItem.scrollFactor.set(0, scr);
 			menuItem.updateHitbox();
 			menuItem.screenCenter(X);
+			if (optionShit[i] != "play")
+				menuItem.y += 30;
 		}
 
 		var psychVer:FlxText = new FlxText(12, FlxG.height - 44, 0, "Psych Engine v" + psychEngineVersion, 12);
@@ -157,20 +159,23 @@ class MainMenuState extends MusicBeatState
 					{
 						switch (optionShit[curSelected])
 						{
-							case 'story_mode':
-								MusicBeatState.switchState(new StoryMenuState());
-							case 'freeplay':
-								MusicBeatState.switchState(new FreeplayState());
+							case 'play':
+								var songLowercase:String = Paths.formatToSongPath('aether');
+								var poop:String = Highscore.formatSong(songLowercase, 1);
+								trace(poop);
 
-							#if MODS_ALLOWED
-							case 'mods':
-								MusicBeatState.switchState(new ModsMenuState());
-							#end
+								try
+								{
+									PlayState.SONG = Song.loadFromJson(poop, songLowercase);
+									PlayState.isStoryMode = false;
+									PlayState.storyDifficulty = 1;
 
-							#if ACHIEVEMENTS_ALLOWED
-							case 'awards':
-								MusicBeatState.switchState(new AchievementsMenuState());
-							#end
+									trace('CURRENT WEEK: ' + WeekData.getWeekFileName());
+								}
+
+								FlxG.sound.music.volume = 0;
+
+								LoadingState.loadAndSwitchState(new PlayState());
 
 							case 'credits':
 								MusicBeatState.switchState(new CreditsState());

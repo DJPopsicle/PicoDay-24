@@ -1,5 +1,8 @@
 package states;
 
+import mechanics.FunkinMechanicManager;
+import mechanics.FunkinMechanic;
+import mechanics.Dodge;
 import backend.Highscore;
 import backend.StageData;
 import backend.WeekData;
@@ -25,7 +28,7 @@ import cutscenes.CutsceneHandler;
 import cutscenes.DialogueBoxPsych;
 
 import states.StoryMenuState;
-import states.FreeplayState;
+import states.MainMenuState;
 import states.editors.ChartingState;
 import states.editors.CharacterEditorState;
 
@@ -80,6 +83,9 @@ class PlayState extends MusicBeatState
 	public static var STRUM_X = 42;
 	public static var STRUM_X_MIDDLESCROLL = -278;
 
+	public var strumLineX:Float;
+	public var strumLineY:Float;
+
 	public static var ratingStuff:Array<Dynamic> = [
 		['You Suck!', 0.2], //From 0% to 19%
 		['Shit', 0.4], //From 20% to 39%
@@ -113,6 +119,7 @@ class PlayState extends MusicBeatState
 	public var modchartSounds:Map<String, FlxSound> = new Map<String, FlxSound>();
 	public var modchartTexts:Map<String, FlxText> = new Map<String, FlxText>();
 	public var modchartSaves:Map<String, FlxSave> = new Map<String, FlxSave>();
+	public var modchartFloatingSprites:Map<String, Array<Float>> = [];
 	#end
 
 	public var BF_X:Float = 770;
@@ -202,6 +209,8 @@ class PlayState extends MusicBeatState
 	public var botplaySine:Float = 0;
 	public var botplayTxt:FlxText;
 
+	public var sinVal:Float = 0;
+
 	public var iconP1:HealthIcon;
 	public var iconP2:HealthIcon;
 	public var camHUD:FlxCamera;
@@ -222,6 +231,7 @@ class PlayState extends MusicBeatState
 	public static var deathCounter:Int = 0;
 
 	public var defaultCamZoom:Float = 1.05;
+	public var defaultStageZoom:Float;
 
 	// how big to stretch the pixel art assets
 	public static var daPixelZoom:Float = 6;
@@ -263,6 +273,9 @@ class PlayState extends MusicBeatState
 	// Callbacks for stages
 	public var startCallback:Void->Void = null;
 	public var endCallback:Void->Void = null;
+
+	public var mechanicManager:FunkinMechanicManager;
+	var dodge:Dodge;
 
 	override public function create()
 	{
@@ -343,6 +356,7 @@ class PlayState extends MusicBeatState
 		}
 
 		defaultCamZoom = stageData.defaultZoom;
+		defaultStageZoom = stageData.defaultZoom;
 
 		stageUI = "normal";
 		if (stageData.stageUI != null && stageData.stageUI.trim().length > 0)
@@ -635,6 +649,10 @@ class PlayState extends MusicBeatState
 		cacheCountdown();
 		cachePopUpScore();
 
+		mechanicManager = new FunkinMechanicManager();
+		dodge = new Dodge(this, boyfriend, gf, dad, camHUD);
+		dodge.create();
+		
 		super.create();
 		Paths.clearUnusedMemory();
 
@@ -1483,8 +1501,12 @@ class PlayState extends MusicBeatState
 	public var skipArrowStartTween:Bool = false; //for lua
 	private function generateStaticArrows(player:Int):Void
 	{
-		var strumLineX:Float = ClientPrefs.data.middleScroll ? STRUM_X_MIDDLESCROLL : STRUM_X;
-		var strumLineY:Float = ClientPrefs.data.downScroll ? (FlxG.height - 150) : 50;
+		// var strumLineX:Float = ClientPrefs.data.middleScroll ? STRUM_X_MIDDLESCROLL : STRUM_X;
+		// var strumLineY:Float = ClientPrefs.data.downScroll ? (FlxG.height - 150) : 50;
+
+		strumLineX = ClientPrefs.data.middleScroll ? STRUM_X_MIDDLESCROLL : STRUM_X;
+		strumLineY = ClientPrefs.data.downScroll ? (FlxG.height - 150) : 50;
+
 		for (i in 0...4)
 		{
 			// FlxG.log.add(i);
@@ -1626,6 +1648,17 @@ class PlayState extends MusicBeatState
 
 	override public function update(elapsed:Float)
 	{
+		var lerpVal:Float = FlxMath.bound(elapsed, 0, 1);
+		sinVal += 180 * elapsed;
+
+		for (k => v in modchartFloatingSprites)
+		{
+			var spr = modchartSprites.get(k);
+
+			spr.y = v[1] - ((Math.sin((Math.PI * sinVal) / (180 * v[2]))) * 10) + (dodge.projNum == v[3] ? ProjMove.getProj(dodge.projNum) : 0);
+		}
+		mechanicManager.updateMechanics(elapsed);
+
 		if(!inCutscene && !paused && !freezeCamera) {
 			FlxG.camera.followLerp = 2.4 * cameraSpeed * playbackRate;
 			if(!startingSong && !endingSong && boyfriend.getAnimationName().startsWith('idle')) {
@@ -2012,6 +2045,12 @@ class PlayState extends MusicBeatState
 					camHUD.zoom += flValue2;
 				}
 
+			case 'set Cam Zoomin':
+				camZooming = (value1 == "yes" || value1 == "true");
+
+			case 'Zoom Cam':
+				defaultCamZoom = value2 == "yes" || value2 == "true" ? defaultStageZoom : flValue1;
+
 			case 'Play Animation':
 				//trace('Anim to play: ' + value1);
 				var char:Character = dad;
@@ -2199,6 +2238,12 @@ class PlayState extends MusicBeatState
 			case 'Play Sound':
 				if(flValue2 == null) flValue2 = 1;
 				FlxG.sound.play(Paths.sound(value1), flValue2);
+
+			case 'Dodge':
+				// var anim1:String = value1.split(", ")[0];
+				// var anim2:String = value1.split(", ")[1];
+
+				dodge.dodge('', '', Std.int(flValue2), (value1.toLowerCase() == 'yes' || value1.toLowerCase() ==  'true' || value1.toLowerCase() ==  'y') ? false : true);
 		}
 
 		stagesFunc(function(stage:BaseStage) stage.eventCalled(eventName, value1, value2, flValue1, flValue2, strumTime));
@@ -2381,11 +2426,11 @@ class PlayState extends MusicBeatState
 			}
 			else
 			{
-				trace('WENT BACK TO FREEPLAY??');
+				trace('WENT BACK TO MENU??');
 				Mods.loadTopMod();
 				#if DISCORD_ALLOWED DiscordClient.resetClientID(); #end
 
-				MusicBeatState.switchState(new FreeplayState());
+				MusicBeatState.switchState(new MainMenuState());
 				FlxG.sound.playMusic(Paths.music('freakyMenu'));
 				changedDifficulty = false;
 			}

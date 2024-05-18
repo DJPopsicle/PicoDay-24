@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="alucard.png"><SubTexture name="alucard idle0000" x="1804" y="2464" width="441" height="632" frameX="-327" frameY="-398" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="alucard idle0001" x="2245" y="2464" width="441" height="631" frameX="-329" frameY="-399" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="alucard idle0002" x="851" y="2464" width="432" height="642" frameX="-335" frameY="-388" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="alucard idle0003" x="425" y="2464" width="426" height="646" frameX="-334" frameY="-384" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="alucard idle0004" x="0" y="2464" width="425" height="647" frameX="-334" frameY="-383" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="alucard left0000" x="2686" y="2464" width="530" height="631" frameX="-278" frameY="-399" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="alucard left0001" x="1283" y="2464" width="521" height="636" frameX="-286" frameY="-394" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="alucard down0000" x="0" y="3111" width="484" height="580" frameX="-300" frameY="-450" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="alucard down0001" x="3365" y="0" width="479" height="594" frameX="-306" frameY="-436" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="alucard up0000" x="0" y="1790" width="448" height="674" frameX="-325" frameY="-358" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="alucard up0001" x="448" y="1790" width="450" height="673" frameX="-319" frameY="-359" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="alucard right0000" x="2759" y="658" width="408" height="654" frameX="-370" frameY="-376" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="alucard right0001" x="2759" y="1312" width="412" height="648" frameX="-358" frameY="-382" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="alucard getProj0000" x="898" y="1790" width="409" height="667" frameX="-340" frameY="-363" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="alucard getProj0001" x="1080" y="0" width="418" height="720" frameX="-306" frameY="-312" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="alucard getProj0002" x="0" y="1080" width="446" height="710" frameX="-276" frameY="-322" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="alucard readyBump0000" x="1498" y="0" width="458" height="718" frameX="-262" frameY="-314" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="alucard readyBump0001" x="0" y="1080" width="446" height="710" frameX="-276" frameY="-322" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="alucard outtaProj0000" x="446" y="1080" width="443" height="707" frameX="-279" frameY="-325" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="alucard outtaProj0001" x="889" y="1080" width="402" height="701" frameX="-330" frameY="-331" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="alucard outtaProj0002" x="1291" y="1080" width="417" height="694" frameX="-326" frameY="-338" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="alucard shot0000" x="1307" y="1790" width="607" height="659" frameX="-240" frameY="-368" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="alucard shot0001" x="1914" y="1790" width="736" height="658" frameX="-116" frameY="-369" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="alucard shot0002" x="1956" y="689" width="788" height="685" frameX="-91" frameY="-369" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="alucard shot0003" x="1956" y="0" width="803" height="689" frameX="-83" frameY="-369" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="alucard shot0004" x="2759" y="0" width="606" height="658" frameX="-247" frameY="-369" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="alucard shot0005" x="0" y="0" width="1080" height="1080" frameX="0" frameY="0" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="alucard shot0006" x="2759" y="0" width="606" height="658" frameX="-247" frameY="-369" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="alucard shot0007" x="0" y="0" width="1080" height="1080" frameX="0" frameY="0" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="alucard shot0008" x="2759" y="0" width="606" height="658" frameX="-247" frameY="-369" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="alucard shot0009" x="0" y="0" width="1080" height="1080" frameX="0" frameY="0" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="alucard shot0010" x="2759" y="0" width="606" height="658" frameX="-247" frameY="-369" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="alucard shot0011" x="0" y="0" width="1080" height="1080" frameX="0" frameY="0" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="alucard throwProj0000" x="1498" y="0" width="458" height="718" frameX="-262" frameY="-314" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="alucard throwProj0001" x="1044" y="3111" width="585" height="570" frameX="-252" frameY="-459" frameWidth="1080" frameHeight="1080" />
+<SubTexture name="alucard throwProj0002" x="484" y="3111" width="560" height="571" frameX="-263" frameY="-459" frameWidth="1080" frameHeight="1080" />
+</TextureAtlas>
