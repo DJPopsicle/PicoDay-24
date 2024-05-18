@@ -440,21 +440,24 @@ class Dodge extends FunkinMechanic
             }
         });
 
+        var yTime:Float = 0.4;
+        var yEase = FlxEase.quintIn;
+
         switch (projNum)
         {
             case 1:
-                FlxTween.tween(ProjMove, { proj1: 500 }, 0.30, {
-                    ease: FlxEase.sineInOut
+                FlxTween.tween(ProjMove, { proj1: 500 }, yTime, {
+                    ease: yEase
                 });
                 
             case 2:
-                FlxTween.tween(ProjMove, { proj2: 500 }, 0.30, {
-                    ease: FlxEase.sineInOut
+                FlxTween.tween(ProjMove, { proj2: 500 }, yTime, {
+                    ease: yEase
                 });
 
             case 3:
-                FlxTween.tween(ProjMove, { proj3: 700 }, 0.30, {
-                    ease: FlxEase.sineInOut
+                FlxTween.tween(ProjMove, { proj3: 700 }, yTime, {
+                    ease: yEase
                 });
         
         

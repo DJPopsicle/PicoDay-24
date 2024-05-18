@@ -15,19 +15,19 @@ function onCreate()
 	setProperty('bg.antialiasing', true);
 	setObjectOrder('bg', 2);
 
-	makeLuaSprite('proj1', 'class/proj1', -425, -170, true, 1, 1);
+	makeLuaSprite('proj1', 'class/proj1', -425, -170, false, true, 1, 1);
 	scaleObject('proj1', 0.8, 0.8);
 	setScrollFactor('proj1', 1, 1);
 	setProperty('proj1.antialiasing', true);
 	setObjectOrder('proj1', 3);
 
-	makeLuaSprite('proj2', 'class/proj2', -385, -110, true, 1.5, 2);
+	makeLuaSprite('proj2', 'class/proj2', -385, -110, false, true, 1.5, 2);
 	scaleObject('proj2', 0.8, 0.8);
 	setScrollFactor('proj2', 1, 1);
 	setProperty('proj2.antialiasing', true);
 	setObjectOrder('proj2', 4);
 
-	makeLuaSprite('proj3', 'class/proj2', -585, -360, true, 1.25, 3);
+	makeLuaSprite('proj3', 'class/proj2', -585, -360, false, true, 1.25, 3);
 	scaleObject('proj3', 0.8, 0.8);
 	setScrollFactor('proj3', 1, 1);
 	setProperty('proj3.antialiasing', true);
@@ -41,7 +41,7 @@ function onCreate()
 	setProperty('boyfriendGroup.antialiasing', true);
 	setObjectOrder('boyfriendGroup', 7);
 
-	makeLuaSprite('deadtable', 'class/deadtable', -380, -160);
+	makeLuaSprite('deadtable', 'class/deadtable', -380, -160, true);
 	scaleObject('deadtable', 0.8, 0.8);
 	setScrollFactor('deadtable', 1, 1);
 	setProperty('deadtable.antialiasing', true);

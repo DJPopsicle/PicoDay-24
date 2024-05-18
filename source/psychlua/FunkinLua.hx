@@ -985,17 +985,24 @@ class FunkinLua {
 			}
 		});
 
-		Lua_helper.add_callback(lua, "makeLuaSprite", function(tag:String, ?image:String = null, ?x:Float = 0, ?y:Float = 0, ?float:Bool = false, ?floatSpeed:Float = 1, ?projNum:Int = 1) {
+		Lua_helper.add_callback(lua, "makeLuaSprite", function(tag:String, ?image:String = null, ?x:Float = 0, ?y:Float = 0, ?gorey:Bool = false, ?float:Bool = false, ?floatSpeed:Float = 1, ?projNum:Int = 1) {
 			tag = tag.replace('.', '');
 			LuaUtils.resetSpriteTag(tag);
 			var leSprite:ModchartSprite = new ModchartSprite(x, y);
 			if(image != null && image.length > 0)
 			{
+				if (gorey)
+				{
+					if (!ClientPrefs.data.gore)
+						image = image + '-pg';
+
+				}
 				leSprite.loadGraphic(Paths.image(image));
 			}
 			game.modchartSprites.set(tag, leSprite);
 			if (float)
 				game.modchartFloatingSprites.set(tag, [leSprite.x, leSprite.y, floatSpeed, projNum]);
+
 			leSprite.active = true;
 		});
 		Lua_helper.add_callback(lua, "makeAnimatedLuaSprite", function(tag:String, ?image:String = null, ?x:Float = 0, ?y:Float = 0, ?spriteType:String = "sparrow") {

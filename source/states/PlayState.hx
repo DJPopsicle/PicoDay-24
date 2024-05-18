@@ -441,6 +441,12 @@ class PlayState extends MusicBeatState
 		startLuasNamed('stages/' + curStage + '.lua');
 		#end
 
+		// var univScripts = FileSystem.readDirectory('assets/scripts/');
+		// for (i in 0...univScripts.length)
+		// {
+		// 	new FunkinLua('scripts/' + univScripts[i] + '.lua');
+		// }
+
 		#if HSCRIPT_ALLOWED
 		startHScriptsNamed('stages/' + curStage + '.hx');
 		#end

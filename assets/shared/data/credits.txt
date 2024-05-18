@@ -4,3 +4,4 @@ WAVESS::wavess::Aether Song::https://www.youtube.com/@WAVESSmusic::80D7FF
 DJ Popsicle::djp::Code::https://www.youtube.com/channel/UCYd7oJiTmSkIfSvEU_7ejBA::BD2626
 Mello::mello::Charting::https://twitter.com/phisxyt::FA4B74
 SPG64::spg64::Put custom pico animations onto his fla::https://www.youtube.com/channel/UC5CSS7IKL4dK_jT5UMtIpKw::AD34CB
+Mr.Bruh::bruh::Hold note splash script::https://gamebanana.com/mods/514137::C6FDFF
