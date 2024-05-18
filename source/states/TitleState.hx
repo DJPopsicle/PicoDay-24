@@ -133,7 +133,7 @@ class TitleState extends MusicBeatState
 			}
 
 			FlxG.save.data.loadedSave = true;
-			FlxG.save.flush();
+			//FlxG.save.flush();
 		}
 
 		ClientPrefs.loadPrefs();
