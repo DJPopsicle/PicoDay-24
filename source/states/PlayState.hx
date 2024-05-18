@@ -1846,7 +1846,9 @@ class PlayState extends MusicBeatState
 		setOnScripts('cameraX', camFollow.x);
 		setOnScripts('cameraY', camFollow.y);
 		setOnScripts('botPlay', cpuControlled);
-		callOnScripts('onUpdatePost', [elapsed]);
+		
+		if (health > 0)
+			callOnScripts('onUpdatePost', [elapsed]);
 	}
 
 	// Health icon updaters

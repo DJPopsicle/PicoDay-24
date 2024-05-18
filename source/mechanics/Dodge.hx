@@ -484,7 +484,7 @@ class Dodge extends FunkinMechanic
             });
         }
 
-        playState.health -= 1 * Std.parseInt(Std.string(rating));
+        playState.health -= 1 * Std.parseFloat(Std.string(rating));
         trace(1 * Std.parseFloat(Std.string(rating)));
     }
 }

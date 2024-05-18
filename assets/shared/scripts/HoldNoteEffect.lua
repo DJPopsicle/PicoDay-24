@@ -104,3 +104,7 @@ end
 function ni(note, info)
     return getPropertyFromGroup('strumLineNotes', note, info)
 end
+
+function onGameOver()
+    close(true)
+end
