@@ -152,6 +152,7 @@ class FunkinMechanic
 
     public function playSound(sound:String)
     {
+        sounds.get(sound).volume = FlxG.sound.volume * 1.5;
         sounds.get(sound).play(true, 0);
     }
 
